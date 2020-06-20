@@ -126,3 +126,14 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# alias for productive work
+## ansible
+## eg. ans-raw '10.36.192.3' 'uname -r' -o
+##     ans-shell 'dev:!10.36.192.3' 'uname -r' -f 10 -o
+##     ans-copy '10.36.192.3' '/home/michael/test.txt' "/home/michael/" -o
+##     ans-script 'dev:&10.36.192.3' '/home/michael/test.sh' -o
+alias ans-raw='f() { if [[ $# -lt 2 ]]; then echo "Usage: ans-shell host cmd [args]"; return 1; fi; ansible $1 -m raw -a $2 $@[3,-1]; }; f'
+alias ans-shell='f() { if [[ $# -lt 2 ]]; then echo "Usage: ans-shell host cmd [args]"; return 1; fi; ansible $1 -m shell -a $2 $@[3,-1]; }; f'
+alias ans-copy='f() { if [[ $# -lt 2 ]]; then echo "Usage: ans-copy host src dest [args]"; return 1; fi; ansible $1 -m copy -a "src=$2 dest=$3" $@[4,-1]; }; f'
+alias ans-script='f() { if [[ $# -lt 1 ]]; then echo "Usage: ans-shell host script_path [args]"; return 1; fi; ansible $1 -m script -a "$2" $@[3,-1]; }; f'

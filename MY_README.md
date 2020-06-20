@@ -17,6 +17,10 @@ https://github.com/powerline/fonts
 If you use Zsh, add the following line to your ~/.zshrc (for all interactive shells):
 . /usr/share/autojump/autojump.sh
 
+## install custom plugin
+```git submodule init```
+``` git submodule update --remote```
+
 
 ### cheatsheet
 see: https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet
