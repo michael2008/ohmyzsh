@@ -95,6 +95,8 @@ plugins=(
     extract
     history
     rsync
+    systemd
+    tmux
 )
 
 source $ZSH/oh-my-zsh.sh

@@ -16,3 +16,7 @@ https://github.com/powerline/fonts
 ```apt install autojump```
 If you use Zsh, add the following line to your ~/.zshrc (for all interactive shells):
 . /usr/share/autojump/autojump.sh
+
+
+### cheatsheet
+see: https://github.com/ohmyzsh/ohmyzsh/wiki/Cheatsheet
