@@ -9,8 +9,19 @@ export ZSH=$HOME/.oh-my-zsh
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-ZSH_THEME="aussiegeek"
-ZSH_THEME="fishy"
+
+# for ZSH
+case "$OSTYPE" in
+  darwin*)
+    ZSH_THEME="gnzh"
+  ;;
+  linux*)
+    ZSH_THEME="dpoggi"
+  ;;
+  dragonfly*|freebsd*|netbsd*|openbsd*)
+    # ...
+  ;;
+esac
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -76,6 +87,14 @@ plugins=(
     colored-man-pages
     zsh-syntax-highlighting
     zsh-autosuggestions
+    command-not-found
+    copydir
+    copyfile
+    cp
+    dirpersist
+    extract
+    history
+    rsync
 )
 
 source $ZSH/oh-my-zsh.sh
